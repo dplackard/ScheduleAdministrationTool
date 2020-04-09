@@ -83,6 +83,81 @@ namespace SAT.DATA.EF
     }
     #endregion
 
+    #region Courses
+    public class CoursesMetadata
+    {
+        [Required(ErrorMessage ="*Course Name is REQUIRED")]
+        [StringLength(50, ErrorMessage="*Value must be 50 characters or less")]
+        [Display(Name = "Course Name")]
+        public string CourseName { get; set; }
 
+        [Required(ErrorMessage = "*Description is REQUIRED")]
+        [Display(Name = "Description")]
+        public string CourseDescription { get; set; }
 
+        [Required(ErrorMessage = "*Credit Hours is REQUIRED")]
+        [Display(Name = "Credit Hours")]
+        public byte CreditHours { get; set; }
+
+        [StringLength(250, ErrorMessage="*Value must be 250 characters or less")]
+        [DisplayFormat(NullDisplayText = "[-N/A-]")]
+        [UIHint("MultilineText")]
+        public string Curriculum { get; set; }
+
+        [StringLength(500, ErrorMessage="*Value must be 500 characters or less")]
+        [UIHint("MultilineText")]
+        public string Notes { get; set; }
+
+        [Required]
+        [Display(Name = "Status")]
+        public bool IsActive { get; set; }
+    }
+
+    [MetadataType(typeof(CoursesMetadata))]
+    public partial class Cours
+    {
+
+    }
+    #endregion
+
+    #region ScheduledClasses
+    public class ScheduledClassesMetadata
+    {
+        [Required(ErrorMessage = "*Start Date is REQUIRED")]
+        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Start Date")]
+        public System.DateTime StartDate { get; set; }
+
+        [Required(ErrorMessage = "*End Date is REQUIRED")]
+        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
+        [Display(Name = "End Date")]
+        public System.DateTime EndDate { get; set; }
+
+        [Required(ErrorMessage = "*Instructor Name is REQUIRED")]
+        [StringLength(40, ErrorMessage="*Value must be 40 characters or less")]
+        [Display(Name = "Instructor Name")]
+        public string InstructorName { get; set; }
+
+        [Required(ErrorMessage ="*Location is required")]
+        [StringLength(20, ErrorMessage="*Value must be 20 characters or less")]
+        public string Location { get; set; }
+
+    }
+
+    [MetadataType(typeof(ScheduledClassesMetadata))]
+    public partial class ScheduledClass { }
+    #endregion
+
+    #region ScheduledClassStatus
+    public class ScheduledClassStatusMetadata
+    {
+        [Required(ErrorMessage ="*Scheduled Class Status Name is REQUIRED")]
+        [StringLength(50, ErrorMessage="*Value must be 50 characters or less")]
+        [Display(Name = "Status")]
+        public string SCSName { get; set; }
+    }
+
+    [MetadataType(typeof(ScheduledClassStatusMetadata))]
+    public partial class ScheduleClassStatus { }
+    #endregion
 }
