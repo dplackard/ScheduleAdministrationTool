@@ -105,6 +105,7 @@ namespace SAT.DATA.EF
         public string Curriculum { get; set; }
 
         [StringLength(500, ErrorMessage="*Value must be 500 characters or less")]
+        [DisplayFormat(NullDisplayText = "[-N/A-]")]
         [UIHint("MultilineText")]
         public string Notes { get; set; }
 

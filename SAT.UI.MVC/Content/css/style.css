@@ -9867,3 +9867,7 @@ textarea.form-control {
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
+
+section.herobg {
+    background-image: url(../images/bg_1.jpg)
+}

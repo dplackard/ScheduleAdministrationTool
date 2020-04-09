@@ -1,14 +1,52 @@
 ﻿@model IEnumerable<SAT.DATA.EF.Cours>
-
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Courses";
 }
 
-<h2>Index</h2>
+<section class="herobg hero-wrap hero-wrap-2">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center">
+                <h1 class="mb-2 bread">Courses</h1>
+                <p class="breadcrumbs"><span class="mr-2"><a href="@Url.Action("Index", "Home")">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>@ViewBag.Title <i class="ion-ios-arrow-forward"></i></span></p>
+            </div>
+        </div>
+    </div>
+</section>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+@foreach (var item in Model)
+{
+    if (item.IsActive == true)
+    {
+        <section class="ftco-section">
+            <div class="container-fluid px-4">
+                <div class="row">
+                    <div class="col-md-3 course ftco-animate">
+                        <div class="img" style="background-image: url(../../Content/images/course-1.jpg);"></div>
+                        <div class="text pt-4">
+                            <p class="meta d-flex">
+                                <span><i class="icon-user mr-2"></i>@*@Html.DisplayFor(x => item.ScheduledClasses.InstructorName)*@</span>
+                                <span><i class="icon-calendar mr-2"></i>1 Year</span>
+                                <span><i class="icon-table mr-2"></i>@Html.DisplayFor(x => item.CreditHours) Credit Hours</span>
+                            </p>
+                            <h3><a href="/Courses/Details/@item.CourseId">@Html.DisplayFor(x => item.CourseName)</a></h3>
+                            <p>@Html.DisplayFor(x => item.CourseDescription)</p>
+                            @*<p><a href="#" class="btn btn-primary">Apply now</a></p>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
+    else
+    {
+
+    }
+}
 <table class="table">
     <tr>
         <th>
@@ -32,32 +70,33 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CourseName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CourseDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreditHours)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Curriculum)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Notes)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsActive)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CourseId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CourseId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CourseId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreditHours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Curriculum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Notes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.CourseId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.CourseId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.CourseId })
+            </td>
+        </tr>
+    }
 
 </table>
