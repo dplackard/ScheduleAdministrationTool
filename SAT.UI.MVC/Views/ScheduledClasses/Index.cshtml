@@ -53,9 +53,12 @@
             @Html.DisplayFor(modelItem => item.ScheduleClassStatus.SCSName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ScheduleClassId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ScheduleClassId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ScheduleClassId })
+            @Html.ActionLink("Edit", "Edit", new { id = item.ScheduleClassId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ScheduleClassId })
+            @if (User.IsInRole("Admin"))
+            {
+                @Html.Raw("|") @Html.ActionLink("Delete", "Delete", new { id = item.SCSID })
+            }
         </td>
     </tr>
 }

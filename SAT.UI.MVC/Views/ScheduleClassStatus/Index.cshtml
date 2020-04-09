@@ -23,9 +23,12 @@
             @Html.DisplayFor(modelItem => item.SCSName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.SCSID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.SCSID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.SCSID })
+            @Html.ActionLink("Edit", "Edit", new { id = item.SCSID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.SCSID })
+            @if (User.IsInRole("Admin"))
+            {
+                @Html.Raw("|") @Html.ActionLink("Delete", "Delete", new { id = item.SCSID })
+            }
         </td>
     </tr>
 }

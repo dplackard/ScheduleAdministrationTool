@@ -69,9 +69,10 @@
                     <li class="nav-item"><a href="@Url.Action("Index", "ScheduleClassStatus")" class="nav-link">Status</a></li>
                     @*<li class="nav-item"><a href="@Url.Action("Index", "Staff")" class="nav-link">Staff</a></li>*@
                     <li class="nav-item"><a href="@Url.Action("Contact", "Home")" class="nav-link">Contact</a></li>
-                    <li class="nav-item"><a href="@Url.Action("About", "Home")" class="nav-link">Login</a></li>
-                    <li class="nav-item"><a href="@Url.Action("About", "Home")" class="nav-link">Logout</a></li>
+                    @*<li class="nav-item"><a href="@Url.Action("Login", "Account")" class="nav-link">Login</a></li>
+                    <li class="nav-item"><a href="@Url.Action("Logout", "Account")" class="nav-link">Logout</a></li>*@
                 </ul>
+                @Html.Partial("_LoginPartial")
             </div>
         </div>
     </nav>
@@ -137,5 +138,6 @@
     <script src="~/Content/js/google-map.js"></script>
     <script src="~/Content/js/main.js"></script>
 
+    @RenderSection("scripts", required: false)
 </body>
 </html>
