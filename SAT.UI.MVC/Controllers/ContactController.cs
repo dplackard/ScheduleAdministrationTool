@@ -13,14 +13,14 @@ namespace SAT.UI.MVC.Controllers
     {
         // GET: Contact
         [HttpGet]
-        public ActionResult Contact()
+        public ActionResult Index()
         {
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Contact(ContactViewModel cvm)
+        public ActionResult Index(ContactViewModel cvm)
         {
             if (!ModelState.IsValid)
             {
@@ -28,7 +28,7 @@ namespace SAT.UI.MVC.Controllers
             }
             string body = $"{cvm.Name} has sent you the following message: <br />" + $"{cvm.Message} <strong>from the email address:</strong> {cvm.Email}";
 
-            MailMessage m = new MailMessage("info@devem.com", "dplackard@outlook.com", cvm.Subject, body);
+            MailMessage m = new MailMessage("no-reply@devonplackard.com", "dplackard@outlook.com", cvm.Subject, body);
             MailAddress copy = new MailAddress("emma_lintz@outlook.com");
             m.CC.Add(copy);
 
@@ -40,7 +40,7 @@ namespace SAT.UI.MVC.Controllers
 
             SmtpClient client = new SmtpClient("mail.devonplackard.com");
 
-            //client.Credentials = new NetworkCredential()
+            client.Credentials = new NetworkCredential("no-reply@devonplackard.com", "P@ssw0rd");
 
             try
             {
@@ -48,7 +48,7 @@ namespace SAT.UI.MVC.Controllers
             }
             catch (Exception e)
             {
-                ViewBag.ErrorMessage = e.StackTrace;
+                ViewBag.ErrorMessage = "This is proof of the stack trace" + e.StackTrace;
                 return View(cvm);
             }
 

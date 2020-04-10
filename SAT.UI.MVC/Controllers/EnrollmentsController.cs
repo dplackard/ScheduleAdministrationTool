@@ -41,7 +41,7 @@ namespace SAT.UI.MVC.Controllers
         public ActionResult Create()
         {
             ViewBag.ScheduleClassId = new SelectList(db.ScheduledClasses, "ScheduleClassId", "InstructorName");
-            ViewBag.StudentId = new SelectList(db.Students, "StudentId", "FirstName");
+            ViewBag.StudentId = new SelectList(db.Students, "StudentId", "FullName");
             return View();
         }
 

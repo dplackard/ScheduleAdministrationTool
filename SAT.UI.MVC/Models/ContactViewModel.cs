@@ -21,7 +21,7 @@ namespace SAT.UI.MVC.Models
         [StringLength(150, ErrorMessage="*Value must be 150 characters or less")]
         public string Subject { get; set; }
 
-        [Required(ErrorMessage ="*Message is required")]
+        [Required(ErrorMessage ="*Message is REQUIRED")]
         [UIHint("MultilineText")]
         [StringLength(1000, ErrorMessage="*Value must be 1000 characters or less")]
         public string Message { get; set; }

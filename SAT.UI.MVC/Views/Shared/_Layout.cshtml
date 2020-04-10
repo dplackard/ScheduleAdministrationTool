@@ -24,7 +24,7 @@
         <div class="container">
             <div class="row no-gutters d-flex align-items-center align-items-stretch">
                 <div class="col-md-4 d-flex align-items-center py-4">
-                    <a class="navbar-brand" href="index.html">DevEm <span>University</span></a>
+                    <a class="navbar-brand" href="@Url.Action("Contact", "Home")">DevEm <span>University</span></a>
                 </div>
                 <div class="col-lg-8 d-block">
                     <div class="row d-flex">
@@ -64,13 +64,15 @@
                     <li class="nav-item"><a href="@Url.Action("Index", "Home")" class="nav-link pl-0">Home</a></li>
                     <li class="nav-item"><a href="@Url.Action("About", "Home")" class="nav-link">About</a></li>
                     <li class="nav-item"><a href="@Url.Action("Index", "Courses")" class="nav-link">Courses</a></li>
-                    <li class="nav-item"><a href="@Url.Action("Index", "ScheduledClasses")" class="nav-link">Scheduled Classes</a></li>
+                    <li class="nav-item"><a href="@Url.Action("Index", "ScheduledClasses")" class="nav-link">Classes</a></li>
                     <li class="nav-item"><a href="@Url.Action("Index", "Enrollments")" class="nav-link">Enrollments</a></li>
-                    <li class="nav-item"><a href="@Url.Action("Index", "ScheduleClassStatus")" class="nav-link">Status</a></li>
+                    <li class="nav-item"><a href="@Url.Action("Index", "ScheduleClassStatus")" class="nav-link">Class Status</a></li>
+                    <li class="nav-item"><a href="@Url.Action("Index", "Students")" class="nav-link">Students</a></li>
+                    <li class="nav-item"><a href="@Url.Action("Index", "StudentStatus")" class="nav-link">Student Status</a></li>
                     @*<li class="nav-item"><a href="@Url.Action("Index", "Staff")" class="nav-link">Staff</a></li>*@
-                    <li class="nav-item"><a href="@Url.Action("Contact", "Home")" class="nav-link">Contact</a></li>
+                    <li class="nav-item"><a href="@Url.Action("Index", "Contact")" class="nav-link">Contact</a></li>
                     @*<li class="nav-item"><a href="@Url.Action("Login", "Account")" class="nav-link">Login</a></li>
-                    <li class="nav-item"><a href="@Url.Action("Logout", "Account")" class="nav-link">Logout</a></li>*@
+        <li class="nav-item"><a href="@Url.Action("Logout", "Account")" class="nav-link">Logout</a></li>*@
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -89,7 +91,7 @@
                             <ul>
                                 <li><span class="icon icon-map-marker"></span><span class="text">203 Ocean St. Mountain View, Long Beach, California, USA</span></li>
                                 <li><a href="#"><span class="icon icon-phone"></span><span class="text">+1 392 3929 210</span></a></li>
-                                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">help@devem.com</span></a></li>
+                                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@devem.com</span></a></li>
                             </ul>
                         </div>
                     </div>

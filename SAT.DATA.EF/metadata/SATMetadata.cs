@@ -58,6 +58,10 @@ namespace SAT.DATA.EF
         [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true, NullDisplayText = "Date unknown")]
         [Display(Name = "Student Enrollment Date")]
         public System.DateTime EnrollmentDate { get; set; }
+        [Display(Name = "Instructor Name")]
+        public int ScheduleClassId { get; set; }
+        [Display(Name = "Student Name")]
+        public int StudentId { get; set; }
     }
     [MetadataType(typeof(EnrollmentMetadata))]
     public partial class Enrollment

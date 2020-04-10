@@ -9871,3 +9871,7 @@ textarea.form-control {
 section.herobg {
     background-image: url(../images/bg_1.jpg)
 }
+
+btn-warning {
+    background-color: #fd6f1a;
+}
